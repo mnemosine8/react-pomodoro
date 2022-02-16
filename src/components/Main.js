@@ -29,6 +29,14 @@ handleChange = (e) => {
     });
   }
 
+  handleEdit = (e,index) =>{
+    console.log(index);
+
+  }
+  handleDelete = (e,index) =>{
+
+  }
+
   render(){
     const { newTask, tasks } = this.state;
 
@@ -44,12 +52,14 @@ handleChange = (e) => {
             </button>
           </form>
           <ul className="tasks">
-            {tasks.map((task) =>(
+            {tasks.map((task,index) =>(
               <li key={task}>
                 {task}
                 <div>
-                <FaEdit className="edit"/>
-                <FaWindowClose className="delete"/></div>
+                <FaEdit onClick ={(e) => this.handleEdit(e, index)}
+                        className="edit"/>
+                <FaWindowClose
+                  onClick = {this.handleDelete} className="delete"/></div>
                 </li>
             ))}
           </ul>
