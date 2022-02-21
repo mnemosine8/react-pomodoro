@@ -9,18 +9,35 @@ export default class Main extends Component{
   state = {
     newTask:'',
     tasks: [],
+    index: -1
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { tasks} = this.state;
+    const { tasks, index} = this.state;
     let { newTask } = this.state;
     newTask = newTask.trim();
     if(tasks.indexOf(newTask) !== -1) return;
-
     const newTasks = [...tasks];
+    if(index !== -1)
+    {
+      newTasks[index] = newTask;
+      this.setState(
+      {
+        tasks: [...newTasks],
+        newTask: ''
+      });
+
+    }
+    else
+    {
     this.setState(
-      {tasks:[...newTasks,newTask]})
+      { tasks:[...newTasks,newTask],
+        index: -1,
+        newTask: '',
+      });
+    }
+
   }
 
 handleChange = (e) => {
@@ -30,11 +47,22 @@ handleChange = (e) => {
   }
 
   handleEdit = (e,index) =>{
-    console.log(index);
+    const { tasks } = this.state;
+    this.setState(
+      {
+          index,
+          newTask: tasks[index],
+      }
+    )
 
   }
   handleDelete = (e,index) =>{
-
+    const { tasks } = this.state;
+    const newTasks = [...tasks];
+    newTasks.splice(index,1);
+    this.setState({
+      tasks: [...newTasks],
+    });
   }
 
   render(){
