@@ -1,22 +1,24 @@
 
 .pomodoro
  {
-     background-color: rgb(235, 222, 222);
-     margin: 200px auto;
-     padding: 120px;
+     background-color: rgb(222, 196, 224);
+     margin: 55px 200px 30px;
+     padding: 60px;
      border-radius: 4px;
      box-shadow: 0 0 10px;
-     max-width: 900px;
+     max-width: 870px;
  }
 
  .pomodoro h2
  {
      font-size: 20px;
-    text-align: center;
+     text-align: center;
+     margin-top: 0px;
  }
 
  .timer
  {
-    font-size: 10px;
+    font-size: 90px;
     text-align: center;
+    margin-top:10px;
  }

@@ -2,7 +2,12 @@
 {
     
     padding: 30px;
-    margin:400px auto;
-    max-width: 700px;
+    margin-left: 300px;
+    max-width: 300px;
     margin-top:40px;
+}
+
+.buttomsTimer Button 
+{
+    width:30px;
 }

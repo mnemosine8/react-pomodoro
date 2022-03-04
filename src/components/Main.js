@@ -100,8 +100,8 @@ handleChange = (e) => {
        />
       </div>
       <div className = "buttomsTimer">
-        <Button
-          text = "teste"
+        <Button 
+          text = "start"
          ></Button>
       </div>
         
