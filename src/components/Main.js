@@ -4,8 +4,9 @@ import {FaPlus} from 'react-icons/fa';
 //tasks
 import './Main.css'
 import Form from './Form';
-import Tasks from './Tasks'
-
+import Tasks from './Tasks';
+import PomodoroTimer from './PomodoroTimer';
+import { Button} from './buttomsTimer';
 export default class Main extends Component{
   state = {
     newTask:'',
@@ -32,15 +33,18 @@ export default class Main extends Component{
     const { tasks, index} = this.state;
     let { newTask } = this.state;
     newTask = newTask.trim();
+    if (newTask !== "")
+    {
     if(tasks.indexOf(newTask) !== -1) return;
-    const newTasks = [...tasks];
+      const newTasks = [...tasks];
     if(index !== -1)
     {
       newTasks[index] = newTask;
       this.setState(
       {
         tasks: [...newTasks],
-        newTask: ''
+        newTask: '',
+        index: -1
       });
 
     }
@@ -54,6 +58,7 @@ export default class Main extends Component{
     }
 
   }
+}
 
 handleChange = (e) => {
     this.setState({
@@ -84,6 +89,23 @@ handleChange = (e) => {
     const { newTask, tasks } = this.state;
 
     return (
+      <div>
+      <div className="container">
+      <PomodoroTimer
+          defaultPomodoroTimer = {90000} 
+          shortRestTime = {300}
+          longRestTime={900}
+          cycles = {4}
+       
+       />
+      </div>
+      <div className = "buttomsTimer">
+        <Button
+          text = "teste"
+         ></Button>
+      </div>
+        
+      
         <div className="Main">
           <h1>Tasks</h1>
           <Form
@@ -96,9 +118,9 @@ handleChange = (e) => {
             handleDelete = {this.handleDelete}
             tasks = {tasks}
           />
+    
 
-
-        </div>
+        </div> </div>
     );
   }
 }

@@ -1,16 +1,16 @@
 .Main{
   background: rgb(244, 244, 247);
   padding: 30px;
-  margin:400px auto;
-  max-width: 500px;
+  margin: 200px  auto;
+  max-width: 700px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border: 4px solid rgb(178, 144, 185);
-  margin-top:500px;
+  
 }
 
 .Main h1{
-  font-size: 25px;
+  font-size: 30px;
   text-align: center ;
   font-family: Big Caslon;
   color: rgb(174, 110, 187);
@@ -18,27 +18,3 @@
 
 }
 
-.tasks{
-
-  margin-top:30px;
-
-
-}
-.tasks li{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-
-}
-
-.tasks li .edit{
-  margin-right: 10px;
-  color: rgb(120, 162, 216);
-  cursor: pointer;
-
-}
-
-.tasks li .delete{
-  cursor: pointer;
-}
