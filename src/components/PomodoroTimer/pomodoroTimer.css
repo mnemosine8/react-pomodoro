@@ -1,24 +1,41 @@
 
-.pomodoro
+
+ .timer
  {
-     background-color: rgb(222, 196, 224);
-     margin: 55px 200px 30px;
-     padding: 60px;
-     border-radius: 4px;
-     box-shadow: 0 0 10px;
-     max-width: 870px;
+    background-color: rgb(222, 196, 224);
+    margin: 55px 300px 0px;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px;
+    max-width: 700px;
+    justify-content: space-evenly;
+    font-size: 90px;
+    text-align: center;
+    margin-top:10px;
  }
 
- .pomodoro h2
+ .timer h2  
  {
      font-size: 20px;
      text-align: center;
      margin-top: 0px;
  }
 
- .timer
- {
-    font-size: 90px;
+ .buttonsTimer
+{
+    
+    padding: 30px;
+    margin-left: 300px;
+    max-width: 300px;
+    margin-top:40px;
+}
+
+.buttonsTimer Button 
+{
+    width:30px;
+    background-color:  rgb(120, 162, 216);
+    cursor:pointer;
+    border: none;
+    padding:10px 30px;
     text-align: center;
-    margin-top:10px;
- }
+}

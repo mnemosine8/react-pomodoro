@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-import './buttomsTimer.css'
+import './buttonsTimer.css'
 
 export function Button(props)
 {

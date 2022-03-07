@@ -1,0 +1,18 @@
+.buttonsTimer
+{
+    
+    padding: 30px;
+    margin-left: 300px;
+    max-width: 300px;
+    margin-top:40px;
+}
+
+.buttonsTimer Button 
+{
+    width:30px;
+    background-color:  rgb(120, 162, 216);
+    cursor:pointer;
+    border: none;
+    padding:10px 30px;
+    text-align: center;
+}

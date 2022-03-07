@@ -6,7 +6,8 @@ import './Main.css'
 import Form from './Form';
 import Tasks from './Tasks';
 import PomodoroTimer from './PomodoroTimer';
-import { Button} from './buttomsTimer';
+import configureWork from './PomodoroTimer';         
+import { Button} from './buttonsTimer';
 export default class Main extends Component{
   state = {
     newTask:'',
@@ -99,11 +100,7 @@ handleChange = (e) => {
        
        />
       </div>
-      <div className = "buttomsTimer">
-        <Button 
-          text = "start"
-         ></Button>
-      </div>
+  
         
       
         <div className="Main">
