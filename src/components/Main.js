@@ -93,9 +93,9 @@ handleChange = (e) => {
       <div>
       <div className="container">
       <PomodoroTimer
-          defaultPomodoroTimer = {4} 
+          defaultPomodoroTimer = {8} 
           shortRestTime = {3}
-          longRestTime={900}
+          longRestTime={6}
           cycles = {4}
        
        />

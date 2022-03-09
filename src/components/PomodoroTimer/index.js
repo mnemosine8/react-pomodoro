@@ -35,9 +35,10 @@ const configureWork = () =>{
 }               
 
 const configureRest = () => {
+      setResting(true);
       setTimeCounting(true);
       setWorking(false);
-      setResting(true);
+  
       if(long)
             {
              setMainTime(longRestTime);
@@ -67,8 +68,11 @@ const configureReset = () =>{
 }
 
 useEffect(()=>{
-      if(working) document.body.classList.add('working');
-      if(resting) document.body.classList.remove('working');
+      
+      if(resting) document.querySelector(".timer").style.backgroundColor ="lightblue";
+      if(working) document.querySelector(".timer").style.backgroundColor ="Plum";
+
+      //if(working) document.pomodoro.classList.add('working');
 
       if (mainTime > 0) return; 
       if(working &&  cyclesQtdManager.length > 0){
@@ -81,24 +85,28 @@ useEffect(()=>{
             setLong(true);
             configureRest();
             setCyclesQtdManager(new Array(cycles - 1).fill(true));
+            
            
       }
-      if(resting)
-      {
-           console.log('aqui');
-            configureWork();
-      } 
-  
-
+      else
+            {
+                  if(resting)
+                  {
+                       console.log('aqui');
+                        configureWork();
+                  }          
+            }
 },[working,resting,mainTime,cycles,configureRest,setCyclesQtdManager,configureWork]);
 
 
 
    return (
          <div className="pomodoro">
+               
            <div classname="timer">
-               <h2>Focus</h2>
+           <h2>Focus</h2>
           <Timer mainTime = {mainTime}/></div>
+          
           <div className = "buttonsTimer">
              <Button text = "start" onClick={()=> configureWork()}></Button>
              <Button text = "pause" onClick={()=> setTimeCounting(false)}></Button>

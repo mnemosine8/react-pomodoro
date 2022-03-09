@@ -1,5 +1,6 @@
 
 
+
  .timer
  {
     background-color: rgb(222, 196, 224);
@@ -14,11 +15,11 @@
     margin-top:10px;
  }
 
- .h2  
+ h2  
  {
-     font-size: 100px;
-     text-align: center;
+     font-size: 50px;
      margin-top: 10px;
+     margin-left: 550px;
  }
 
  .buttonsTimer
