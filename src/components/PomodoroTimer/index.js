@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useInterval } from '../hooks/UseInterval';
 import { secondsToTime } from '../utils/seconds-to-time';
@@ -6,12 +6,19 @@ import { Timer } from '../Timer';
 import './pomodoroTimer.css';
 import { Button } from '../buttonsTimer';
 
-export default function PomodoroTimer({defaultPomodoroTimer,longRestTime,shortRestTime}){
+
+const bellStart = require ('../sounds/src_sounds_bell-start.mp3');
+const bellFinish = require ('../sounds/src_sounds_bell-finish.mp3');
+const audioStartWorking = new Audio(bellStart);
+const audioStopWorking = new Audio(bellFinish);
+export default function PomodoroTimer({defaultPomodoroTimer,longRestTime,shortRestTime,cycles}){
 const[mainTime,setMainTime] = React.useState(defaultPomodoroTimer);
 const [timeCounting,setTimeCounting] = React.useState(false);
 const [working,setWorking] = React.useState(false);
 const [resting,setResting] = React.useState(false);
 const [long,setLong] = React.useState(false);
+const[cyclesQtdManager,setCyclesQtdManager] = React.useState(new Array(cycles-1).fill(true));
+
 
  useInterval(() => {
        setMainTime(mainTime - 1);
@@ -20,8 +27,10 @@ const [long,setLong] = React.useState(false);
  );
 const configureWork = () =>{
       setTimeCounting(true);
-      setResting(false);
       setWorking(true);
+      setResting(false);
+      setMainTime(defaultPomodoroTimer);
+      audioStartWorking.play();
       
 }               
 
@@ -29,6 +38,12 @@ const configureRest = () => {
       setTimeCounting(true);
       setWorking(false);
       setResting(true);
+      if(long)
+            {
+             setMainTime(longRestTime);
+            }
+            else setMainTime(shortRestTime);
+      audioStopWorking.play();
 }
 
 
@@ -40,12 +55,42 @@ const configureReset = () =>{
             setTimeCounting(false);
             setMainTime(defaultPomodoroTimer);}
 
-      else if(long)
+      else {
+            setResting(false);
+            if(long)
             {
                   setMainTime(longRestTime)
             }
             else setMainTime(shortRestTime)
+      }
+     
 }
+
+useEffect(()=>{
+      if(working) document.body.classList.add('working');
+      if(resting) document.body.classList.remove('working');
+
+      if (mainTime > 0) return; 
+      if(working &&  cyclesQtdManager.length > 0){
+            setLong(false);
+            configureRest();
+            cyclesQtdManager.pop();   
+      }
+      else if(working && cyclesQtdManager.length <= 0)
+      {
+            setLong(true);
+            configureRest();
+            setCyclesQtdManager(new Array(cycles - 1).fill(true));
+           
+      }
+      if(resting)
+      {
+           console.log('aqui');
+            configureWork();
+      } 
+  
+
+},[working,resting,mainTime,cycles,configureRest,setCyclesQtdManager,configureWork]);
 
 
 
