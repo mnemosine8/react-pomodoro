@@ -7,6 +7,7 @@ return(
 <ul className="tasks">
             {tasks.map((task,index) =>(
               <li key={task}>
+                <input type = "checkbox" className="checkbox"></input>
                 {task}
                 <div>
                 <FaEdit onClick ={(e) => handleEdit(e, index)}

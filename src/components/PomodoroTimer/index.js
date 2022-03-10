@@ -17,6 +17,7 @@ const [timeCounting,setTimeCounting] = React.useState(false);
 const [working,setWorking] = React.useState(false);
 const [resting,setResting] = React.useState(false);
 const [long,setLong] = React.useState(false);
+const [messageTimer,setMessageTimer] = React.useState("");
 const[cyclesQtdManager,setCyclesQtdManager] = React.useState(new Array(cycles-1).fill(true));
 
 
@@ -66,7 +67,9 @@ const configureReset = () =>{
             {
                   setMainTime(longRestTime)
             }
-            else setMainTime(shortRestTime)
+            else 
+            {
+                  setMainTime(shortRestTime)}
       }
      
 }
@@ -75,9 +78,14 @@ useEffect(()=>{
       
       if(resting) document.querySelector(".timer").style.backgroundColor ="lightblue";
       {
-            if(long) document.querySelector(".timer").style.backgroundColor ="CornflowerBlue";
+            setMessageTimer("Have a Short Break");
+            if(long){
+                  document.querySelector(".timer").style.backgroundColor ="CornflowerBlue";
+                  setMessageTimer("Have a Long Break");}
       }
-      if(working) document.querySelector(".timer").style.backgroundColor ="Plum";
+      if(working) {
+            document.querySelector(".timer").style.backgroundColor ="Plum"
+            setMessageTimer("Work");}
      
 
 
@@ -111,10 +119,10 @@ useEffect(()=>{
 
    return (
          <div className="pomodoro">
-               <p className="text">Focus</p> 
+               <div classname = "logo"></div>
            <div classname="timer">
           
-          <Timer mainTime = {mainTime}/></div>
+          <Timer messageTimer = {messageTimer} mainTime = {mainTime}/></div>
           
           <div className = "buttonsTimer">
              <Button text = "start" onClick={()=> configureStart()}></Button>

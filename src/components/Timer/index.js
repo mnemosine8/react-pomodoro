@@ -4,5 +4,7 @@ import { secondsToTime } from "../utils/seconds-to-time";
 
 export function Timer(props)
 {
-    return <div className="timer">{secondsToTime(props.mainTime)}</div>
+    return <div className="timer">
+       <div className="messageTimer">{props.messageTimer}</div> 
+        <div className="clock">{secondsToTime(props.mainTime)}</div></div>
 }
