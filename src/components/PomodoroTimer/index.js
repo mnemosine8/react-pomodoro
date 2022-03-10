@@ -25,11 +25,20 @@ const[cyclesQtdManager,setCyclesQtdManager] = React.useState(new Array(cycles-1)
  },
  timeCounting ? 1000 : null,
  );
+
+
+const configureStart = () =>
+{
+      if(resting)
+      configureRest();
+      else
+      configureWork();
+}
+ 
 const configureWork = () =>{
       setTimeCounting(true);
       setWorking(true);
       setResting(false);
-      setMainTime(defaultPomodoroTimer);
       audioStartWorking.play();
       
 }               
@@ -38,12 +47,6 @@ const configureRest = () => {
       setResting(true);
       setTimeCounting(true);
       setWorking(false);
-  
-      if(long)
-            {
-             setMainTime(longRestTime);
-            }
-            else setMainTime(shortRestTime);
       audioStopWorking.play();
 }
 
@@ -58,6 +61,7 @@ const configureReset = () =>{
 
       else {
             setResting(false);
+            setTimeCounting(false);
             if(long)
             {
                   setMainTime(longRestTime)
@@ -72,17 +76,18 @@ useEffect(()=>{
       if(resting) document.querySelector(".timer").style.backgroundColor ="lightblue";
       if(working) document.querySelector(".timer").style.backgroundColor ="Plum";
 
-      //if(working) document.pomodoro.classList.add('working');
 
       if (mainTime > 0) return; 
       if(working &&  cyclesQtdManager.length > 0){
             setLong(false);
+            setMainTime(shortRestTime);
             configureRest();
             cyclesQtdManager.pop();   
       }
       else if(working && cyclesQtdManager.length <= 0)
       {
             setLong(true);
+            setMainTime(longRestTime);
             configureRest();
             setCyclesQtdManager(new Array(cycles - 1).fill(true));
             
@@ -92,7 +97,7 @@ useEffect(()=>{
             {
                   if(resting)
                   {
-                       console.log('aqui');
+                        setMainTime(defaultPomodoroTimer);
                         configureWork();
                   }          
             }
@@ -102,13 +107,13 @@ useEffect(()=>{
 
    return (
          <div className="pomodoro">
-               
+               <p className="text">Focus</p> 
            <div classname="timer">
-           <h2>Focus</h2>
+          
           <Timer mainTime = {mainTime}/></div>
           
           <div className = "buttonsTimer">
-             <Button text = "start" onClick={()=> configureWork()}></Button>
+             <Button text = "start" onClick={()=> configureStart()}></Button>
              <Button text = "pause" onClick={()=> setTimeCounting(false)}></Button>
              <Button text = "reset" onClick={()=> configureReset()}></Button>
          </div>

@@ -1,6 +1,7 @@
 
 
 
+
  .timer
  {
     background-color: rgb(222, 196, 224);
@@ -15,7 +16,7 @@
     margin-top:10px;
  }
 
- h2  
+.text  
  {
      font-size: 50px;
      margin-top: 10px;
