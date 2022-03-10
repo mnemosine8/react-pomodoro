@@ -55,12 +55,12 @@ const configureReset = () =>{
      
       if(working) 
       {  
-            setWorking(false);
+          
             setTimeCounting(false);
             setMainTime(defaultPomodoroTimer);}
 
       else {
-            setResting(false);
+         
             setTimeCounting(false);
             if(long)
             {
@@ -74,7 +74,11 @@ const configureReset = () =>{
 useEffect(()=>{
       
       if(resting) document.querySelector(".timer").style.backgroundColor ="lightblue";
+      {
+            if(long) document.querySelector(".timer").style.backgroundColor ="CornflowerBlue";
+      }
       if(working) document.querySelector(".timer").style.backgroundColor ="Plum";
+     
 
 
       if (mainTime > 0) return; 
