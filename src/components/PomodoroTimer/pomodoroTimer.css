@@ -14,6 +14,7 @@
     font-size: 90px;
     text-align: center;
     margin-top:10px;
+    
  }
 
 
@@ -21,28 +22,30 @@
  {
      font-size: 30px;
      margin-top: 10px;
-     margin-left: 600px;
+     margin-left: 580px;
  }
 
  .buttonsTimer
 {
     
-   
-    margin-left: 450px;
+  
+    margin-left: 470px;
     max-width: 300px;
     margin-top:5px;
 }
 
 .buttonsTimer Button 
 {
-    width:60px;
+    border-radius: 100px;
+    width:70px;
     background-color:  rgb(120, 162, 216);
     cursor:pointer;
     border: none;
     padding:10px;
     text-align: center;
-    margin-left: 40px;
+    margin-left: 30px;
     margin-top: 15px;
+    box-shadow: 0 0 2px;
     font-size: medium;
     
 }
