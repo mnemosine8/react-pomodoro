@@ -76,8 +76,9 @@ const configureReset = () =>{
 
 useEffect(()=>{
       
-      if(resting) document.querySelector(".timer").style.backgroundColor ="lightblue";
+      if(resting) 
       {
+            document.querySelector(".timer").style.backgroundColor ="lightblue";
             setMessageTimer("Have a Short Break");
             if(long){
                   document.querySelector(".timer").style.backgroundColor ="CornflowerBlue";
