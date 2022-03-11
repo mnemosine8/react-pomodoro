@@ -78,11 +78,11 @@ useEffect(()=>{
       
       if(resting) 
       {
-            document.querySelector(".timer").style.backgroundColor ="lightblue";
-            setMessageTimer("Have a Short Break");
+            document.querySelector(".timer").style.backgroundColor ="#8b7cb6";
+            setMessageTimer("Have a short break");
             if(long){
-                  document.querySelector(".timer").style.backgroundColor ="CornflowerBlue";
-                  setMessageTimer("Have a Long Break");}
+                  document.querySelector(".timer").style.backgroundColor ="#f4bebd";
+                  setMessageTimer("Have a long break");}
       }
       if(working) {
             document.querySelector(".timer").style.backgroundColor ="Plum"
@@ -120,7 +120,6 @@ useEffect(()=>{
 
    return (
          <div className="pomodoro">
-               <div classname = "logo"></div>
            <div classname="timer">
           
           <Timer messageTimer = {messageTimer} mainTime = {mainTime}/></div>

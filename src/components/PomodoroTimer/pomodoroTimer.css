@@ -1,7 +1,4 @@
 
-
-
-
  .timer
  {
     background-color: rgb(183, 149, 185);
@@ -11,15 +8,18 @@
     box-shadow: 0 0 10px;
     max-width: 700px;
     justify-content: space-evenly;
-
+    width: 100%;
+    border: 4px solid rgb(178, 144, 185);
     
  }
+
 .timer .clock
 {
     font-size: 90px;
     text-align: center;
     margin-top:10px;
-    color:rgba(255, 255, 255, 0.678)
+    color:rgb(255, 255, 255);
+    
 }
 
 .timer .messageTimer
@@ -29,8 +29,6 @@
     
 
 }
-
-
 
  .buttonsTimer
 {
@@ -43,6 +41,7 @@
 
 .buttonsTimer Button 
 {
+    
     border-radius: 100px;
     width:70px;
     background-color:  rgb(120, 162, 216);
@@ -56,3 +55,5 @@
     font-size: medium;
     
 }
+.buttonsTimer Button:active{background-color:rgb(40, 94, 194);
+  }

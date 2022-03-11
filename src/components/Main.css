@@ -1,8 +1,8 @@
 .Main{
-  background: rgb(244, 244, 247);
+  background: rgba(244, 244, 247, 0.548);
   padding: 35px;
   margin-top: 20px;
-  margin-left: 285px;
+  margin-left: 300px;
   margin-bottom: 10px;
 
   max-width: 700px;
@@ -12,6 +12,12 @@
   
 }
 
+img {
+  float: left;
+  width: 160px;
+  margin-left: 60px;
+  margin-top:30px;
+}
 .Main h1{
   font-size: 30px;
   text-align: center ;

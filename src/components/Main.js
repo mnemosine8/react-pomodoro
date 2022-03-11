@@ -8,6 +8,7 @@ import Tasks from './Tasks';
 import PomodoroTimer from './PomodoroTimer';
 import configureWork from './PomodoroTimer';         
 import { Button} from './buttonsTimer';
+
 export default class Main extends Component{
   state = {
     newTask:'',
@@ -91,7 +92,9 @@ handleChange = (e) => {
 
     return (
       <div>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="container">
+      <img src={require('./logo.png')} ></img>
       <PomodoroTimer
           defaultPomodoroTimer = {8} 
           shortRestTime = {3}
@@ -100,10 +103,7 @@ handleChange = (e) => {
        
        />
       </div>
-  
-        
-      
-        <div className="Main">
+       <div className="Main">
           <h1>Tasks</h1>
           <Form
             handleSubmit = {this.handleSubmit}
