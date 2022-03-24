@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, {useEffect,useState, Component} from 'react';
 //form
 import {FaPlus} from 'react-icons/fa';
 //tasks
@@ -8,7 +8,8 @@ import Tasks from './Tasks';
 import PomodoroTimer from './PomodoroTimer';
 import configureWork from './PomodoroTimer';         
 import { Button} from './buttonsTimer';
-
+import api from '../axios';
+import Users from './Users';
 export default class Main extends Component{
   state = {
     newTask:'',
@@ -87,18 +88,24 @@ handleChange = (e) => {
     });
   }
 
+
+
+  
+
   render(){
     const { newTask, tasks } = this.state;
 
     return (
+      
       <div>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <Users/>
       <div className="container">
       <img src={require('./logo.png')} ></img>
       <PomodoroTimer
-          defaultPomodoroTimer = {8} 
-          shortRestTime = {3}
-          longRestTime={6}
+          defaultPomodoroTimer = {12300} 
+          shortRestTime = {300}
+          longRestTime={12300}
           cycles = {4}
        
        />
