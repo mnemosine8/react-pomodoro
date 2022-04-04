@@ -8,12 +8,12 @@ return(
             {tasks.map((task,index) =>(
               <li key={task}>
                 <input type = "checkbox" className="checkbox"></input>
-                {task}
+                {task.description}
                 <div>
                 <FaEdit onClick ={(e) => handleEdit(e, index)}
                         className="edit"/>
                 <FaWindowClose
-                  onClick = {handleDelete} className="delete"/></div>
+                  onClick = {(e) => handleDelete(e,index)} className="delete"/></div>
                 </li>
             ))}
           </ul>

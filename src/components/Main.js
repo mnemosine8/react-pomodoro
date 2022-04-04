@@ -16,12 +16,14 @@ export default class Main extends Component{
     tasks: [],
     index: -1
   };
-
   componentDidMount(){
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
-    if(!tasks) return;
-
-    this.setState({tasks});
+  
+      api.get("/tasks")
+      .then((response) => this.setState({tasks: response.data}))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+      //eslint-disable-next-line react-hooks/exhaustive-deps 
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -36,32 +38,26 @@ export default class Main extends Component{
     const { tasks, index} = this.state;
     let { newTask } = this.state;
     newTask = newTask.trim();
-    if (newTask !== "")
+    const newTasks =[...tasks];
+    
+    if(index === -1)
     {
-    if(tasks.indexOf(newTask) !== -1) return;
-      const newTasks = [...tasks];
-    if(index !== -1)
-    {
-      newTasks[index] = newTask;
-      this.setState(
-      {
-        tasks: [...newTasks],
-        newTask: '',
-        index: -1
-      });
-
-    }
-    else
-    {
-    this.setState(
-      { tasks:[...newTasks,newTask],
-        index: -1,
-        newTask: '',
+      api
+      .post(("/tasks"), {
+        description: newTask,
+      })
+      .then((response) => {
+       
+        this.setState({
+          tasks: [...newTasks,response.data],
+          index: -1,
+          newTask: ''
+          });
       });
     }
+   }
 
-  }
-}
+    
 
 handleChange = (e) => {
     this.setState({
