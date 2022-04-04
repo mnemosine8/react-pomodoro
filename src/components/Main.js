@@ -10,6 +10,7 @@ import configureWork from './PomodoroTimer';
 import { Button} from './buttonsTimer';
 import api from '../axios';
 import Users from './Users';
+import axios from 'axios';
 export default class Main extends Component{
   state = {
     newTask:'',
@@ -82,6 +83,7 @@ handleChange = (e) => {
     this.setState({
       tasks: [...newTasks],
     });
+    api.delete('/tasks/'+ tasks[index].id);
   }
 
 
