@@ -56,6 +56,19 @@ export default class Main extends Component{
           });
       });
     }
+    else {
+      console.log("index", index);
+      newTasks[index].description = newTask;
+      api.put('/tasks/' + newTasks[index].id, {description: newTask,})
+      this.setState(
+      {
+        tasks: [...newTasks],
+        index: -1,
+        newTask: ''
+        
+      });
+
+    }
    }
 
     

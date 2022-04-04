@@ -8,7 +8,7 @@ export default function Form({handleChange, handleSubmit, newTask}){
     <form onSubmit={handleSubmit} action="#" className = "form">
             <input onChange={handleChange}
               type = "text"
-              value={newTask}/>
+              value= {newTask} />
             <button type = "submit">
               <FaPlus />
             </button>
